@@ -1,7 +1,11 @@
 [
     {
+        "ssid": "esp32-hotspot",
+        "password": "papricacom"
+    },
+    {
         "ssid": "ESTACIO-VISITANTES",
-        "password": "SENHA_ESTACIO"
+        "password": "estacio@2014"
     },
     {
         "ssid": "CLARO_2G01E66A",
