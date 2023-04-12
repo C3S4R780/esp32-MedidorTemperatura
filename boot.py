@@ -2,6 +2,7 @@
 import network
 import json
 from time import sleep
+import upip
 
 net = network.WLAN(network.STA_IF)
 net.active(True)
@@ -19,3 +20,7 @@ if not net.isconnected():
         timeout =+ 1
         sleep(1)
     if timeout == 4: print("Connection timeout.")
+
+else:
+    upip.install("micropython-uasyncio")
+
