@@ -2,25 +2,15 @@
 import network
 import json
 from time import sleep
-import upip
 
 net = network.WLAN(network.STA_IF)
 net.active(True)
-timeout = 0
 
 with open("redesSalvas.json", "r") as file:
     redes = json.load(file)
 
-for rede in redes:
-    if net.isconnected(): break
-    net.connect(rede["ssid"], rede["password"])
-
-if not net.isconnected():
-    while (not net.isconnected() and timeout < 5):
-        timeout =+ 1
-        sleep(1)
-    if timeout == 4: print("Connection timeout.")
-
-else:
-    upip.install("micropython-uasyncio")
-
+while not net.isconnected():
+    for rede in redes:
+        if net.isconnected(): break
+        net.connect(rede["ssid"], rede["password"])
+        sleep(5)
